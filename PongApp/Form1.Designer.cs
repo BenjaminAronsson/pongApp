@@ -1,6 +1,6 @@
 ﻿namespace PongApp
 {
-    partial class Form1
+    partial class PongForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.ball = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PongForm));
+            this.ballObject = new System.Windows.Forms.PictureBox();
             this.paddle1 = new System.Windows.Forms.PictureBox();
             this.paddle2 = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.ball)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ballObject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle2)).BeginInit();
             this.SuspendLayout();
             // 
-            // ball
+            // ballObject
             // 
-            resources.ApplyResources(this.ball, "ball");
-            this.ball.Name = "ball";
-            this.ball.TabStop = false;
+            resources.ApplyResources(this.ballObject, "ballObject");
+            this.ballObject.Name = "ballObject";
+            this.ballObject.TabStop = false;
             // 
             // paddle1
             // 
@@ -63,21 +63,21 @@
             this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Form1
+            // PongForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Controls.Add(this.paddle2);
             this.Controls.Add(this.paddle1);
-            this.Controls.Add(this.ball);
+            this.Controls.Add(this.ballObject);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "PongForm";
             this.ShowIcon = false;
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
-            ((System.ComponentModel.ISupportInitialize)(this.ball)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ballObject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle2)).EndInit();
             this.ResumeLayout(false);
@@ -85,7 +85,7 @@
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox ball;
+        private System.Windows.Forms.PictureBox ballObject;
         private System.Windows.Forms.PictureBox paddle1;
         private System.Windows.Forms.PictureBox paddle2;
         private System.Windows.Forms.Timer timer;

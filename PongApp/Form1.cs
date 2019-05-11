@@ -10,24 +10,30 @@ using System.Windows.Forms;
 
 namespace PongApp
 {
-    public partial class Form1 : Form
+    public partial class PongForm : Form
     {
 
         const int paddleSpeed = 2;
-        const int topOfScreen = 0;
-        const int bottomOfScreen = 500;
+
+        public const int topOfScreen = 0;
+        public const int bottomOfScreen = 500;
+        Ball ball;
+
 
         bool isUpPressed, isDownPressed, isWPressed, isSPressed = false;
+        //const Player player1, player2;
 
-        public Form1()
+        public PongForm()
         {
             InitializeComponent();
+            ball = new Ball(ballObject);
         }
 
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-        
+              
+            
 
             if (isUpPressed)
             {
@@ -48,6 +54,32 @@ namespace PongApp
             {
                 doMove(false, paddle2);
             }
+
+            moveBall(ball);
+        }
+
+        private void moveBall(Ball ball)
+        {
+            
+
+            if (ball.ballFrame.Location.Y == topOfScreen || ball.ballFrame.Location.Y + ( ball.ballFrame.Height) == bottomOfScreen)
+            {
+                ball.ySpeed *= -1;
+            }
+            if (ball.ballFrame.Bounds.IntersectsWith(paddle1.Bounds) || ball.ballFrame.Bounds.IntersectsWith(paddle2.Bounds))
+            {
+                ball.xSpeed *= -1;
+            }
+            var speedY = ball.ySpeed;
+            var speedX = ball.xSpeed;
+
+
+            ball.ballFrame.Location = new Point(ball.ballFrame.Location.X + speedX,
+                Math.Max(topOfScreen,
+                Math.Min(bottomOfScreen - ball.ballFrame.Height, ball.ballFrame.Location.Y + speedY)
+                )
+                );
+            
         }
 
         private void doMove(bool? goingUp, PictureBox ob)

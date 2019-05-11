@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="ball.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="ballObject.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhAAEAAcQRABLLPwuKLJdMk3VgfDKCTB6KPIhNvbI1paFDnaY/nQ+MMAqGKg/NQLQ2prM0pXZP
         hwiEKP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH/C05FVFNDQVBF
@@ -180,30 +180,30 @@
         Ow==
 </value>
   </data>
-  <data name="ball.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="ballObject.Location" type="System.Drawing.Point, System.Drawing">
     <value>411, 213</value>
   </data>
-  <data name="ball.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="ballObject.Size" type="System.Drawing.Size, System.Drawing">
     <value>40, 41</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ball.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+  <data name="ballObject.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ball.TabIndex" type="System.Int32, mscorlib">
+  <data name="ballObject.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
-  <data name="&gt;&gt;ball.Name" xml:space="preserve">
-    <value>ball</value>
+  <data name="&gt;&gt;ballObject.Name" xml:space="preserve">
+    <value>ballObject</value>
   </data>
-  <data name="&gt;&gt;ball.Type" xml:space="preserve">
+  <data name="&gt;&gt;ballObject.Type" xml:space="preserve">
     <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ball.Parent" xml:space="preserve">
+  <data name="&gt;&gt;ballObject.Parent" xml:space="preserve">
     <value>$this</value>
   </data>
-  <data name="&gt;&gt;ball.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;ballObject.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="paddle1.ErrorImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -10791,7 +10791,7 @@
     <value>System.Windows.Forms.Timer, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
-    <value>Form1</value>
+    <value>PongForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
     <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
