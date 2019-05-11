@@ -14,6 +14,8 @@ namespace PongApp
     {
 
         const int paddleSpeed = 2;
+        const int topOfScreen = 0;
+        const int bottomOfScreen = 500;
 
         bool isUpPressed, isDownPressed, isWPressed, isSPressed = false;
 
@@ -25,62 +27,78 @@ namespace PongApp
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(isUpPressed)
+        
+
+            if (isUpPressed)
             {
-                paddle1.Location = new Point(paddle1.Location.X, paddle1.Location.Y - paddleSpeed);
+                doMove(isUpPressed, paddle1);
             }
 
             if (isDownPressed)
             {
-                paddle1.Location = new Point(paddle1.Location.X, paddle1.Location.Y + paddleSpeed);
+                doMove(false, paddle1);
             }
 
             if (isWPressed)
             {
-                paddle2.Location = new Point(paddle2.Location.X, paddle2.Location.Y - paddleSpeed);
+                doMove(isWPressed, paddle2);
             }
 
             if (isSPressed)
             {
-                paddle2.Location = new Point(paddle2.Location.X, paddle2.Location.Y + paddleSpeed);
+                doMove(false, paddle2);
+            }
+        }
+
+        private void doMove(bool? goingUp, PictureBox ob)
+        {
+            if (goingUp.HasValue)
+            {
+                var speed = paddleSpeed;
+                if (goingUp.Value)
+                {
+                    speed *= -1;
+                }
+                ob.Location = new Point(ob.Location.X,
+                    Math.Max(topOfScreen,
+                    Math.Min(bottomOfScreen - ob.Height, ob.Location.Y + speed)
+                    )
+                 );
             }
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            var isKeyDown = true;
+            checkKeys(e, isKeyDown);
 
-            if (e.KeyCode == Keys.Up)
+        }
+
+        private void checkKeys(KeyEventArgs e, bool isKeyDown)
+        {
+            switch (e.KeyCode)
             {
-                isUpPressed = true;
-            } else if (e.KeyCode == Keys.Down)
-            {
-                isDownPressed = true;
-            } else if (e.KeyCode == Keys.W)
-            {
-                isWPressed = true;
-            } else if (e.KeyCode == Keys.S)
-            {
-                isSPressed = true;
+                case Keys.Up:
+                    isUpPressed = isKeyDown;
+                    break;
+                case Keys.Down:
+                    isDownPressed = isKeyDown;
+                    break;
+                case Keys.W:
+                    isWPressed = isKeyDown;
+                    break;
+                case Keys.S:
+                    isSPressed = isKeyDown;
+                    break;
+                default:
+                    break;
             }
         }
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
-            {
-                isUpPressed = false;
-            } else if (e.KeyCode == Keys.Down)
-            {
-                isDownPressed = false;
-            }
-            else if (e.KeyCode == Keys.W)
-            {
-                isWPressed = false;
-            }
-            else if (e.KeyCode == Keys.S)
-            {
-                isSPressed = false;
-            }
+            var isKeyDown = false;
+            checkKeys(e,isKeyDown);
         }
     }
 }
