@@ -34,6 +34,8 @@
             this.paddle1 = new System.Windows.Forms.PictureBox();
             this.paddle2 = new System.Windows.Forms.PictureBox();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.scoreLable = new System.Windows.Forms.Label();
+            this.infoLable = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ballObject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle2)).BeginInit();
@@ -47,12 +49,14 @@
             // 
             // paddle1
             // 
+            this.paddle1.BackColor = System.Drawing.Color.DarkCyan;
             resources.ApplyResources(this.paddle1, "paddle1");
             this.paddle1.Name = "paddle1";
             this.paddle1.TabStop = false;
             // 
             // paddle2
             // 
+            this.paddle2.BackColor = System.Drawing.Color.DarkCyan;
             resources.ApplyResources(this.paddle2, "paddle2");
             this.paddle2.Name = "paddle2";
             this.paddle2.TabStop = false;
@@ -63,11 +67,25 @@
             this.timer.Interval = 1;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // scoreLable
+            // 
+            resources.ApplyResources(this.scoreLable, "scoreLable");
+            this.scoreLable.ForeColor = System.Drawing.Color.Cyan;
+            this.scoreLable.Name = "scoreLable";
+            // 
+            // infoLable
+            // 
+            resources.ApplyResources(this.infoLable, "infoLable");
+            this.infoLable.ForeColor = System.Drawing.Color.Cyan;
+            this.infoLable.Name = "infoLable";
+            // 
             // PongForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Controls.Add(this.infoLable);
+            this.Controls.Add(this.scoreLable);
             this.Controls.Add(this.paddle2);
             this.Controls.Add(this.paddle1);
             this.Controls.Add(this.ballObject);
@@ -81,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.paddle1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.paddle2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -89,6 +108,8 @@
         private System.Windows.Forms.PictureBox paddle1;
         private System.Windows.Forms.PictureBox paddle2;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Label scoreLable;
+        private System.Windows.Forms.Label infoLable;
     }
 }
 
