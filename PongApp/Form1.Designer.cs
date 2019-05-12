@@ -43,6 +43,7 @@
             // 
             // ballObject
             // 
+            this.ballObject.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             resources.ApplyResources(this.ballObject, "ballObject");
             this.ballObject.Name = "ballObject";
             this.ballObject.TabStop = false;
@@ -64,7 +65,7 @@
             // timer
             // 
             this.timer.Enabled = true;
-            this.timer.Interval = 1;
+            this.timer.Interval = 10;
             this.timer.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // scoreLable
@@ -107,9 +108,9 @@
         private System.Windows.Forms.PictureBox ballObject;
         private System.Windows.Forms.PictureBox paddle1;
         private System.Windows.Forms.PictureBox paddle2;
-        private System.Windows.Forms.Timer timer;
         private System.Windows.Forms.Label scoreLable;
         private System.Windows.Forms.Label infoLable;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

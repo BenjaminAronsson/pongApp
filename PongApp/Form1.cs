@@ -12,8 +12,12 @@ namespace PongApp
 {
     public partial class PongForm : Form
     {
+        //settings
+        bool isMultiPlayer = true;
+        const int paddleSpeed = 12;
 
-        const int paddleSpeed = 8;
+
+
         bool isPaused = true;
         bool isStartup = true;
 
@@ -24,6 +28,7 @@ namespace PongApp
 
 
         bool isUpPressed, isDownPressed, isWPressed, isSPressed = false;
+        
         internal Player player1, player2;
 
         public PongForm()
@@ -46,7 +51,6 @@ namespace PongApp
             paddles = new PictureBox[] { paddle1, paddle2 };
 
             updateScoreLable();
-
             timer.Stop();
         }
 
@@ -77,9 +81,9 @@ namespace PongApp
 
             ball.moveBall(paddles);
 
-            if (ball.ballFrame.Location.X <= PongHelper.leftOfScreen || ball.ballFrame.Location.X >= PongHelper.RightOfScreen)
+            if (ball.ballFrame.Location.X <= PongHelper.leftOfScreen || ball.ballFrame.Location.X >= PongHelper.RightOfScreen + ball.ballFrame.Width)
             {
-                if(ball.ballFrame.Location.X <= PongHelper.leftOfScreen + 5)
+                if(ball.ballFrame.Location.X <= PongHelper.leftOfScreen)
                 {
                     player2.Score++;
                 }
@@ -90,9 +94,31 @@ namespace PongApp
                 updateScoreLable();
                 ball.reset();
             }
+
+            //computer player 
+            if(!isMultiPlayer)
+            {
+                moveBot(paddle2);
+               // moveBot(paddle1);
+            }
         }
 
-       
+        private void moveBot(PictureBox botPaddle)
+        {
+            int ballMid = ball.ballFrame.Location.Y + ball.ballFrame.Height / 2;
+            int paddleMid = botPaddle.Location.Y + botPaddle.Height / 2;
+            bool moveUp = false;
+
+            if(ballMid >= paddleMid)
+            {
+                moveUp = false;
+            }
+            else
+            {
+                moveUp = true;
+            }
+            doMove(moveUp, botPaddle);
+        }
 
         private void updateScoreLable()
         {
@@ -145,6 +171,12 @@ namespace PongApp
                     if (!isKeyDown)
                     {
                         pauseGame();
+                    }
+                    break;
+                case Keys.B:
+                    if (!isKeyDown)
+                    {
+                        isMultiPlayer = !isMultiPlayer;
                     }
                     break;
                 default:
